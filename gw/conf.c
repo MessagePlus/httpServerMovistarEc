@@ -202,11 +202,11 @@ bool ConfReadServerFile(Cfg *cfg, TServer *srv)
 	long time_out;
 	log_file = NULL;
 	log_level = 0;
-	cfg_group = cfg_get_single_group(cfg, octstr_imm("httpservermovistarec"));
+	cfg_group = cfg_get_single_group(cfg, octstr_imm("httpServerMovistarEc"));
 	if (cfg_group == NULL)
-		panic(0, "No 'httpservermovistarec' group in configuration");
+		panic(0, "No 'httpServerMovistarEc' group in configuration");
 
-	if (cfg_get_integer(&http_port, cfg_group, octstr_imm("httpserver-port")) == -1)
+	if (cfg_get_integer(&http_port, cfg_group, octstr_imm("httpServer-port")) == -1)
 		http_port = 8080;
 	srv->port = http_port;
 

@@ -5,9 +5,9 @@
  *
  */
 
-SINGLE_GROUP(httpservermovistarec,
-	OCTSTR(httpserver-id)
-	OCTSTR(httpserver-port)
+SINGLE_GROUP(httpServerMovistarEc,
+	OCTSTR(httpServer-id)
+	OCTSTR(httpServer-port)
 	OCTSTR(log-file)
 	OCTSTR(log-level)
 	OCTSTR(server-root)

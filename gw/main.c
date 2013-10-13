@@ -279,7 +279,7 @@ static int smppbox_is_allowed_in_group(Octstr *group, Octstr *variable)
         fields \
         return 0; \
     }
-#include "httpservermovistarec-cfg.def"
+#include "httpServerMovistarEc-cfg.def"
 
 	return 0;
 }
@@ -297,7 +297,7 @@ static int smppbox_is_single_group(Octstr *query)
 #define MULTI_GROUP(name, fields) \
         if (octstr_compare(octstr_imm(#name), query) == 0) \
         return 0;
-#include "httpservermovistarec-cfg.def"
+#include "httpServerMovistarEc-cfg.def"
 	return 0;
 }
 
@@ -364,7 +364,7 @@ int main(int argc, char **argv)
 	cf_index = get_and_set_debugs(argc, argv, check_args);
 	setup_signal_handlers();
 	if (argv[cf_index] == NULL)
-		filename = octstr_create("httpservermovistarec.conf");
+		filename = octstr_create("httpServerMovistarEc.conf");
 	else
 		filename = octstr_create(argv[cf_index]);
 
