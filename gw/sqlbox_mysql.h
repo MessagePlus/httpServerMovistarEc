@@ -1,7 +1,7 @@
 #include "gwlib/gwlib.h"
 
-#define SQL_SELECT_SMPP_USERS "SELECT id,systemId,password,systemType \
-FROM smppUser where systemId='%s' and password='%s' and systemType='%s' "
+#define SQL_INSERT_MO "INSERT INTO trafficMO(id,phoneNumber,shortNumber,receivedTime,deliveryTime,dispatchTime,deliveryCount,msgText,status,errCode,errText,serviceId,serviceName,carrierId,integratorId,integratorQueueId) \
+VALUES(NULL,'%S','%S',now(),now(),'0000-00-00 00:00:00',%s,'%S','%s',%d,'%S',%S,'%S',%S,%S,%S);"
 
 #define SQL_INSERT_MT "INSERT INTO trafficMT(id,phoneNumber,shortNumber,receivedTime,deliveryTime,dispatchTime,deliveryCount,idService,serviceName,idQueue,msgText,carrierMsgId,integratorMsgId,status,errCode,errText) \
 VALUES(NULL,'%S','%S',now(),now(),'0000-00-00 00:00:00',%s,%s,'%s',%s,'%S','%S',%s,'%s',%s,'%s')"
@@ -16,6 +16,10 @@ LIMIT 1000 "
 SET status = '%s', \
 	dispatchTime = now() \
 WHERE id= %s "
+
+#define SQL_SELECT_SERVICE "SELECT id,serviceName,integratorId,integratorQueueId,carrierId FROM service \
+WHERE shortNumber='%s' \
+AND carrierId=%s "
 
 #define SQLBOX_MYSQL_CREATE_LOG_TABLE "CREATE TABLE IF NOT EXISTS %S ( \
 sql_id BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY, \
